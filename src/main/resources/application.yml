@@ -1,0 +1,20 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: api-gateway
+
+  cloud:
+    gateway:
+      server:
+        webflux:
+          routes:
+            - id: grade-service
+              uri: http://localhost:8081
+              predicates:
+                - Path=/api/grades/**
+            - id: log-in
+              uri: http://localhost:8084
+              predicates:
+                - Path=/auth/login
