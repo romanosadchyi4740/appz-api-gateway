@@ -32,10 +32,6 @@ public class AuthenticationFilter extends AbstractGatewayFilterFactory<Authentic
 
                 try {
                     jwtUtil.validateToken(authHeader);
-
-                    // (Optional) Extract UserID and pass downstream if needed here
-                    // String userId = jwtUtil.extractUserId(authHeader);
-                    // ... mutate request ...
                 } catch (Exception e) {
                     throw new RuntimeException("Unauthorized access to application");
                 }
